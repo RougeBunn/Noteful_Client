@@ -20,7 +20,7 @@ export default class AddNote extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    const newNote = {
+    const note = {
       name: e.target['note-name'].value,
       content: e.target['note-content'].value,
       folderId: e.target['note-folder-id'].value,
@@ -31,7 +31,7 @@ export default class AddNote extends Component {
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify(newNote),
+      body: JSON.stringify(note),
     })
       .then(res => {
         if (!res.ok)
