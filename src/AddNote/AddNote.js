@@ -43,7 +43,7 @@ export default class AddNote extends Component {
         this.props.history.push(`/folder/${note.folderId}`)
       })
       .catch(error => {
-        console.error({ error })
+        console.error(error)
       })
   }
 
