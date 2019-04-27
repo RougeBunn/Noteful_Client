@@ -13,7 +13,7 @@ export default class NoteListMain extends React.Component {
   static contextType = Context
   render(){
     const { folder_id } = this.props.match.params
-    const { notes=[] } = this.context
+    const { notes } = this.context
     const notesFolder = getNotesForFolder(notes, folder_id)
 
     return (
