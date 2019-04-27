@@ -11,11 +11,11 @@ export default class NotePageMain extends React.Component {
       params: PropTypes.func.isRequired
     })
   }
-  // static defaultProps = {
-  //   match: {
-  //     params: {}
-  //   }
-  // }
+  static defaultProps = {
+    match: {
+      params: {}
+    }
+  }
 
   static contextType = Context
 
@@ -25,7 +25,7 @@ export default class NotePageMain extends React.Component {
 
   render() {
     const { notes=[] } = this.context
-    const { note_id } = this.props.match.params
+    const { note_id } = this.props.match.params.note_id
     const note = findNote(notes, note_id) || { content: '' }
     return (
       <section className='NotePageMain'>
