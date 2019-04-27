@@ -35,6 +35,8 @@ class App extends Component {
       })
       .then(([notes, folders]) => {
         this.setState({ notes, folders })
+        Context.notes = notes;
+        Context.folders = folders;
       })
       .catch(error => {
         console.error(error)
