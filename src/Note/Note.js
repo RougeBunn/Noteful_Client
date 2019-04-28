@@ -7,6 +7,9 @@ import Context from '../Context'
 import config from '../config'
 
 export default class Note extends React.Component {
+  static defaultProps ={
+    onDeleteNote: () => {},
+  }
   static contextType = Context;
 
   handleClickDelete = e => {
@@ -26,6 +29,8 @@ export default class Note extends React.Component {
       })
       .then(() => {
         this.context.deleteNote(note_id)
+        // allow parent to perform extra behaviour
+        this.props.onDeleteNote(note_id)
       })
       .catch(error => {
         console.error(error)
