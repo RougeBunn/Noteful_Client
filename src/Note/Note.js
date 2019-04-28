@@ -7,16 +7,13 @@ import Context from '../Context'
 import config from '../config'
 
 export default class Note extends React.Component {
-  static defaultProps ={
-    onDeleteNote: () => {},
-  }
   static contextType = Context;
 
   handleClickDelete = e => {
     e.preventDefault()
     const note_id = this.props.id
 
-    fetch(`${config.API_ENDPOINT}/notes/${note_id}`, {
+    fetch(`${config.API_ENDPOINT}/api/notes/${note_id}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json'
@@ -29,8 +26,6 @@ export default class Note extends React.Component {
       })
       .then(() => {
         this.context.deleteNote(note_id)
-        // allow parent to perform extra behaviour
-        this.props.onDeleteNote(note_id)
       })
       .catch(error => {
         console.error(error)
