@@ -39,7 +39,7 @@ class App extends Component {
         Context.folders = folders;
       })
       .catch(error => {
-        console.error(error)
+        console.error(error);
       })
   }
 
